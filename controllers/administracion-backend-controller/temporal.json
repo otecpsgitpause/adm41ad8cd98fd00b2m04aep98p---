@@ -1,0 +1,162 @@
+{
+    "_id": {
+        "$oid": "59d98a1dd09e8512f823bf36"
+    },
+    "activo": true,
+    "curso": {
+        "cod_curso": "57c5e2230a8974baae608be9cc58adcb869c261e99e2c32a1941ed0248fe57bb2e663a4549af472d0715a78f274483bbf874bf4575e4dcefce639042c1278e13",
+        "area": "207df8b106e7f1a02fae2f46cdc0e1fff3ebda23189d75350572f5ad7714a7b0c668cf3a703f45c13d48aba861fb779f5e50658b9590db07a413d916c33c7974",
+        "nombreCurso": "fgh",
+        "codigoSence": "ghjhg",
+        "imagenCurso": "fghfg",
+        "descripcion": "<p>ghj<\/p>",
+        "totalHorasCurso": "9",
+        "cantPruebas": "1"
+    },
+    "modulos": [
+        {
+            "pruebasModulo": [
+                {
+                    "prueba": {
+                        "cod_item": "610f1c757d463b7d5d7c62dbb797029b4eaf9abee93e4193acd3c6aee0ead4e5b83849ec346bc6a0ec11177d7e2ce79c7d3205d2ff7266a9d7635adc53e16ed3",
+                        "nombre": "fghghj",
+                        "instrucciones": "sdfdfg",
+                        "numPrueba": "1",
+                        "codPrueba": "9c05b7126991640fc63b2a1b488e3e45f64e9c4ecd16e98f7f21f85947e5c718a7fc902a68c6f3e128d56a8b8a870271ddb664b78e2a53480eb07b799a311715",
+                        "tipoCodigoItem": "cod_modulo_curso_item",
+                        "cod_curso": "57c5e2230a8974baae608be9cc58adcb869c261e99e2c32a1941ed0248fe57bb2e663a4549af472d0715a78f274483bbf874bf4575e4dcefce639042c1278e13"
+                    },
+                    "preguntasAlternativas": [
+                        {
+                            "p": {
+                                "numero": "1",
+                                "pregunta": [
+                                    "<p>fghfg<\/p>"
+                                ]
+                            },
+                            "a": [
+                                {
+                                    "numero": "1",
+                                    "c": "true",
+                                    "a": "<p>dsdfg<\/p>"
+                                },
+                                {
+                                    "numero": "2",
+                                    "c": "false",
+                                    "a": "<p>fghfgh<\/p>"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "clases": [
+                {
+                    "pruebasClase": [
+                        {
+                            "prueba": {
+                                "cod_item": "e4dfd1e8d0857dd68d5882cc827e1e234b9214778437c47629cbc2e73d13ea27dd8edf90a128ee8045a0951c7c668312e2614ed8043bebdbc249b9bc2a9ae83a",
+                                "nombre": "ghj",
+                                "instrucciones": "fghg",
+                                "numPrueba": "1",
+                                "codPrueba": "cff6832d771369cf9f1291c60f352960d41802b3166c18aa2598bd6e2945cc6961e148ea852ab254f9de5ee86665e57eb6e38fbf2ebce0a75ccf2f31bd70beab",
+                                "tipoCodigoItem": "cod_clases_item",
+                                "cod_curso": "57c5e2230a8974baae608be9cc58adcb869c261e99e2c32a1941ed0248fe57bb2e663a4549af472d0715a78f274483bbf874bf4575e4dcefce639042c1278e13"
+                            },
+                            "preguntasAlternativas": [
+                                {
+                                    "p": {
+                                        "numero": "1",
+                                        "pregunta": [
+                                            "<p>sdffdg<\/p>"
+                                        ]
+                                    },
+                                    "a": [
+                                        {
+                                            "numero": "1",
+                                            "c": "true",
+                                            "a": "<p>fghg<\/p>"
+                                        },
+                                        {
+                                            "numero": "2",
+                                            "c": "false",
+                                            "a": "<p>dfgfgh<\/p>"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "contenidos": [
+                        {
+                            "url": "",
+                            "descripcion": "<p>ghj<\/p>",
+                            "nombre": "fgh",
+                            "contenidoActivo": "true",
+                            "numeroContenido": "1",
+                            "cod_contenido": "d6ee95e7076411fe2d213b31890958967f6a95c8cff5bfc509e9604c0cf7700b4abade3863e135d1cb6592c08fb6c11fc26e71e8ddc916b9c4f719bd9e870657"
+                        }
+                    ],
+                    "clase": {
+                        "totalHorasClase": "9",
+                        "cantPruebas": "1",
+                        "descripcion": "<p>fghg<\/p>",
+                        "nombreClase": "dfgfgh",
+                        "numeroClase": "1",
+                        "cod_clases": "e4dfd1e8d0857dd68d5882cc827e1e234b9214778437c47629cbc2e73d13ea27dd8edf90a128ee8045a0951c7c668312e2614ed8043bebdbc249b9bc2a9ae83a"
+                    },
+                    "_id": {
+                        "$oid": "59d98a43d09e8512f823bf38"
+                    }
+                }
+            ],
+            "modulo": {
+                "totalHorasModulo": "9",
+                "cantPruebas": "1",
+                "descripcion": "<p>ghj<\/p>",
+                "nombreModulo": "fgh",
+                "numeroModulo": "1",
+                "cod_modulo_curso": "610f1c757d463b7d5d7c62dbb797029b4eaf9abee93e4193acd3c6aee0ead4e5b83849ec346bc6a0ec11177d7e2ce79c7d3205d2ff7266a9d7635adc53e16ed3"
+            },
+            "_id": {
+                "$oid": "59d98a38d09e8512f823bf37"
+            }
+        }
+    ],
+    "pruebasCurso": [
+        {
+            "prueba": {
+                "cod_item": "57c5e2230a8974baae608be9cc58adcb869c261e99e2c32a1941ed0248fe57bb2e663a4549af472d0715a78f274483bbf874bf4575e4dcefce639042c1278e13",
+                "nombre": "dfgfgh",
+                "instrucciones": "xcvxcv",
+                "numPrueba": "1",
+                "codPrueba": "eed48f062162c4f8341fc8bbb22f6d4597e1e5358bd604728ec62cb5ae8a13c48461433c362bd27c67a4053e6348bdc2aa1da35b0fe6995b0de8a577beba4f8a",
+                "tipoCodigoItem": "cod_curso_item",
+                "cod_curso": "57c5e2230a8974baae608be9cc58adcb869c261e99e2c32a1941ed0248fe57bb2e663a4549af472d0715a78f274483bbf874bf4575e4dcefce639042c1278e13"
+            },
+            "preguntasAlternativas": [
+                {
+                    "p": {
+                        "numero": "1",
+                        "pregunta": [
+                            "<p>dfgdfg<\/p>"
+                        ]
+                    },
+                    "a": [
+                        {
+                            "numero": "1",
+                            "c": "true",
+                            "a": "<p>fghfgh<\/p>"
+                        },
+                        {
+                            "numero": "2",
+                            "c": "false",
+                            "a": "<p>dfgfgh<\/p>"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "__v": 0
+}

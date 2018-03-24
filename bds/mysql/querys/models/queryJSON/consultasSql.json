@@ -1,0 +1,291 @@
+{
+    "loginadmin": [{
+        "__comment": "inicio de sección",
+        "consulta": "SELECT * from detail_usuario_s_s_rol_s_s inner join usuario_s_s inner join rol_s_s where usuario_s_s.usuario=? and usuario_s_s.contrasena=?"
+    }],
+    "curso": [{
+            "select": [{
+                "area": {
+                    "__comment": "Envia los datos Area",
+                    "consulta": "select * from area",
+                    "usos": [{
+                        "ambitos": "313c1"
+                    }]
+                },
+                "curso": {
+                    "__comment": "cursos",
+                    "consulta": [{
+                            "__descripcion": "entrega los cursos",
+                            "c": "select * from curso",
+                            "__numero": "0"
+                        },
+                        {
+                            "__descripcion": "entrega los modulos_cursos",
+                            "c": "select * from modulo_curso where modulo_curso.curso_cod=? ORDER BY numero_modulo ASC",
+                            "__numero": "1"
+                        },
+                        {
+                            "__descripcion": "entrega las clases de los cursos",
+                            "c": "select * from clases_modulos where clases_modulos.cod_modulo=? ORDER BY numero_clase ASC",
+                            "__numero": "2"
+                        },
+                        {
+                            "__descripcion": "entrega los contenidos de la clase",
+                            "c": "select * from contenido_clases where contenido_clases.cod_clase=? ORDER BY numero_contenido ASC",
+                            "__numero": "3"
+                        },
+                        {
+                            "__descripcion": "entrega las pruebas de modulos,clases",
+                            "c": "select * from prueba where prueba.modulo_curso_cod=? ORDER BY numero_prueba ASC",
+                            "__numero": "4"
+                        }
+                    ],
+                    "usos": [{
+                        "ambitos": "313c1"
+                    }]
+                }
+            }],
+            "delete": [{
+                    "deleteCursos": {
+                        "__comment": "opciones de eliminación cursos",
+                        "consulta": [{
+                            "__comment": "permite eliminación de cursos",
+                            "c": "delete from curso where curso.cod_curso=?"
+                        }],
+                        "usos": [{
+                            "ambitos": "342b7"
+                        }]
+                    }
+                },
+                {
+                    "deleteAreas": {
+                        "__comment": "eliminación areas",
+                        "consulta": [{
+                            "__comment": "permite eliminación de areas",
+                            "c": "delete from area where area.cod_area=?"
+                        }],
+                        "usos": [{
+                            "ambitos": "672a2"
+                        }]
+                    }
+                }
+
+            ],
+            "update": [{
+                "updateArea": {
+                    "__comment": "update áreas",
+                    "consulta": [{
+                        "__comment": "permite el update de un área en concreto",
+                        "c": "update area set nombre_area=? where cod_area=?"
+                    }],
+                    "usos": [{
+                        "ambitos": "673a5"
+                    }]
+                }
+            }]
+
+        },
+        {
+            "registro": [{
+                "registrocurso": {
+                    "__comment": "registra el curso",
+                    "consulta": [{
+                            "__descripcion": "registro en la tabla curso",
+                            "c": "insert into curso(cod_curso, codigo_sence_curso, nombre_curso, area_cod,imagen_curso,descripcion,total_horas,cant_pruebas) values(?,?,?,?,?,?,?,?)"
+                        },
+                        {
+                            "__descripcion": "registro en la tabla modulo_curso",
+                            "c": "insert into modulo_curso(cod_modulo_curso, nombre_modulo_curso, descripcion, curso_cod, numero_modulo, cant_pruebas,total_horas) values(?,?,?,?,?,?,?)"
+                        },
+                        {
+                            "__descripcion": "registro en la tabla clases_modulo",
+                            "c": "insert into clases_modulos(cod_clases, numero_clase, nombre_clase, descripcion, cant_pruebas, cod_modulo,total_horas) values(?,?,?,?,?,?,?)"
+                        },
+                        {
+                            "__descripcion": "registro en la tabla contenido_clases",
+                            "c": "insert into contenido_clases(cod_contenido, numero_contenido, contenido_activo, nombre, descripcion, url, cod_clase) values(?,?,?,?,?,?,?)"
+                        },
+                        {
+                            "__descripcion": "consulta en la base de datos por el curso a registrar",
+                            "c": "SELECT * FROM curso where curso.codigo_sence_curso=?"
+                        }
+                    ],
+                    "usos": [{
+                        "ambitos": "415a1"
+                    }]
+                },
+                "registroArea": {
+                    "__comment": "registra el area",
+                    "consulta": [{
+                            "__descripcion": "registro area",
+                            "c": "insert into area(cod_area, nombre_area) values(?,?)"
+                        },
+                        {
+                            "__descripcion": "consulta existencia area",
+                            "c": "select * from area where area.nombre_area=?"
+                        }
+                    ]
+                }
+            }]
+        },
+        {
+            "temPruebas": {
+                "__comment": "pruebas temporales",
+                "consulta": [{
+                        "__descripcion": "registro prueba",
+                        "c": "insert into temp_pruebas (cod,nombre,num_prueba,cod_it) values(?,?,?,?)"
+                    },
+                    {
+                        "__descripcion": "obtención de pruebas",
+                        "c": "select * from temp_pruebas where temp_pruebas.cod_it=? ORDER BY num_prueba ASC"
+                    },
+                    {
+                        "__descripcion": "borrar prueba registrada",
+                        "c": "delete from temp_pruebas where temp_pruebas.cod=?"
+                    }
+                ]
+            }
+        }
+    ],
+    "administracionpruebas": [{
+            "registrarprueba": [{
+                    "__comment": "registro de prueba",
+                    "consulta": "insert into prueba (cod_prueba,nombre_prueba,modulo_curso_cod,instrucciones,numero_prueba) values(?,?,?,?,?)"
+                },
+                {
+                    "__comment": "validación existencia prueba",
+                    "consulta": "select * from prueba where prueba.nombre_prueba=? and prueba.modulo_curso_cod=?"
+                },
+                {
+                    "__comment": "registro de preguntas",
+                    "consulta": "insert into preguntas (cod_pregunta,enunciado,prueba_cod) values(?,?,?)"
+                },
+                {
+                    "__comment": "registro alternativas",
+                    "consulta": "insert into alternativas (cod_alternativa,enunciado,alternativacorrecta,cod_pregunta) values(?,?,?,?)"
+                }
+            ],
+            "pruebadata": [{
+                    "__comment": "entrega prueba,modulo_curso,curso,area",
+                    "consulta": "select * from prueba inner join modulo_curso on prueba.modulo_curso_cod= modulo_curso.cod_modulo_curso inner join curso on  modulo_curso.curso_cod= curso.cod_curso inner join area on curso.area_cod =area.cod_area",
+                    "usos": [{
+                        "ambitos": "342b4"
+                    }]
+                },
+                {
+                    "preguntas": {
+                        "__comment": "entrega all preguntas,alternativas",
+                        "consulta": "select * from preguntas where preguntas.prueba_cod=?",
+                        "usos": [{
+                            "ambitos": "342b6"
+                        }]
+                    }
+                },
+                {
+                    "alternativas": {
+                        "__comment": "entrega all preguntas,alternativas",
+                        "consulta": "select * from alternativas where alternativas.cod_pregunta=?",
+                        "usos": [{
+                            "ambitos": "342b6"
+                        }]
+                    }
+                },
+                {
+                    "prueba": {
+                        "__comment": "entrega los datos de la prueba",
+                        "consulta": "select * from prueba inner join modulo_curso on prueba.modulo_curso_cod= modulo_curso.cod_modulo_curso inner join curso on  modulo_curso.curso_cod= curso.cod_curso inner join area on curso.area_cod =area.cod_area where prueba.cod_prueba=?",
+                        "usos": [{
+                            "ambitos": "por especificar"
+                        }]
+                    }
+                }
+
+            ]
+        },
+        {
+
+            "delete": [{
+                    "deleteprueba": {
+                        "__comment": "borrar una prueba seleccionada",
+                        "consulta": "delete from prueba where prueba.cod_prueba=?",
+                        "usos": [{
+                            "ambitos": "342b5"
+                        }]
+                    },
+                    "deletePregunta": {
+                        "__comment": "borrado de una pregunta en la base de dato",
+                        "consulta": "delete from preguntas where preguntas.cod_pregunta=?",
+                        "usos": [{
+                            "ambitos": "342b7"
+                        }]
+                    },
+                    "deleteAlternativa": {
+                        "__comment": "permite el borrado de una alternativa",
+                        "consulta": "delete from alternativas where alternativas.cod_alternativa=?",
+                        "usos": [{
+                            "ambitos": "342b7"
+                        }]
+                    }
+
+                }
+
+            ]
+        },
+        {
+            "update": [{
+                    "updateDataPrueba": {
+                        "__comment": "permite la actualización de los campos de la prueba",
+                        "consulta": "update prueba set prueba.nombre_prueba=?,prueba.modulo_curso_cod=?,prueba.instrucciones=? where prueba.cod_prueba=?",
+                        "usos": [{
+                            "ambitos": "342b7"
+                        }]
+                    }
+                },
+                {
+                    "updatePreguntas": {
+                        "__comment": "permite la actualización de los campos de la prueba",
+                        "consulta": "update preguntas set preguntas.enunciado=? where preguntas.cod_pregunta=?",
+                        "usos": [{
+                            "ambitos": "342b7"
+                        }]
+                    }
+                },
+                {
+                    "updateAlternativa": {
+                        "__comment": "permite la actualización de los campos de la prueba",
+                        "consulta": "update alternativas set alternativas.enunciado=?,alternativas.alternativacorrecta=? where alternativas.cod_alternativa=?",
+                        "usos": [{
+                            "ambitos": "342b7"
+                        }]
+                    }
+                }
+            ]
+        }
+
+
+
+
+
+    ],
+    "cursosdata": [
+
+        {
+            "__comment": "obtención todo lo relacionado con un curso",
+            "consulta": "SELECT * from area inner join curso inner join modulo_curso where curso.area_cod = area.cod_area and modulo_curso.curso_cod = curso.cod_curso"
+        },
+        {
+            "__comment": "obtención de todo lo correspondiente a la tabla area",
+            "consulta": "select * from area"
+        },
+        {
+            "__comment": "obtención de todo lo correspondiente a la tabla curso",
+            "consulta": "select * from curso"
+        },
+        {
+            "__comment": "obtención de todo lo correspondiente a la tabla modulo_curso",
+            "consulta": "select * from modulo_curso"
+        }
+    ]
+
+
+}
