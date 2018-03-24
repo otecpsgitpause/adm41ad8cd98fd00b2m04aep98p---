@@ -2,9 +2,6 @@
   "name": "learnotecpausa",
   "version": "1.0.0",
   "description": "plataforma online de visualizacion cursos",
-  "engines": {
-    "node": "6.10.0"
-  },
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
