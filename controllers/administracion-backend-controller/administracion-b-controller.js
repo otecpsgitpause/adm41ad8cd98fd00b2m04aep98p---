@@ -1394,17 +1394,48 @@ function registrarPrueba(req, res) {
                                 esqPrueba.preguntasAlternativas=prueba.preguntasAlternativas;
                                 esqPrueba.completado=false;
                                 esqClase.pruebas.push(esqPrueba);
+                                esqPrueba = {
+                                    prueba: Object,
+                                    pruebasRequisito: new Array(),
+                                    preguntasAlternativas: new Array(),
+                                    completado: Boolean
+                            
+                                }
                             })
                             esqModulo.clases.push(esqClase);
+                            esqClase = {
+                                clase: Object,
+                                contenidos: new Array(),
+                                claseRequisito: new Array(),
+                                completado: Boolean,
+                                pruebas: new Array(),
+                        
+                            }
                         })
                         modulo.pruebasModulo.forEach((prueba)=>{
                             esqPrueba.prueba=prueba.prueba;
                             esqPrueba.preguntasAlternativas= prueba.preguntasAlternativas;
                             esqPrueba.completado=false;
                             esqModulo.pruebas.push(esqPrueba);
+                            esqPrueba = {
+                                prueba: Object,
+                                pruebasRequisito: new Array(),
+                                preguntasAlternativas: new Array(),
+                                completado: Boolean
+                        
+                            }
                         })
 
                         esqCurso.modulos.push(esqModulo);
+                        esqModulo = {
+
+                            modulo: Object,
+                            moduloRequisito: new Array(),
+                            completado: Boolean,
+                            clases: new Array(),
+                            pruebas: new Array(),
+                    
+                        }
                     })
 
                     curso.pruebasCurso.forEach((prueba)=>{
@@ -1412,6 +1443,13 @@ function registrarPrueba(req, res) {
                         esqPrueba.preguntasAlternativas=prueba.preguntasAlternativas;
                         esqPrueba.completado=false;
                         esqCurso.pruebas.push(esqPrueba);
+                        esqPrueba = {
+                            prueba: Object,
+                            pruebasRequisito: new Array(),
+                            preguntasAlternativas: new Array(),
+                            completado: Boolean
+                    
+                        }
                     })
 
                     return esqCurso;
